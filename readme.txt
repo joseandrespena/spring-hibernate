@@ -1,3 +1,3 @@
 readme
 
-foo bar baz
+foo bar
