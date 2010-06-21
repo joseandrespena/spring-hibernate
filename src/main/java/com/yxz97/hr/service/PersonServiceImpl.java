@@ -15,22 +15,26 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yxz97.hr.dao.PersonDao;
 import com.yxz97.hr.domain.Person;
 
 @Service
+@Transactional(propagation=org.springframework.transaction.annotation.Propagation.REQUIRED, readOnly=true)
 public class PersonServiceImpl implements PersonService {
 	
 	@Resource
 	private PersonDao personDao;
 
 	@Override
+	@Transactional(readOnly=false)
 	public void delete(Person entity) {
 		personDao.delete(entity);
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public void delete(Long entityId) {
 		personDao.delete(entityId);
 	}
@@ -51,6 +55,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public Person save(Person entity) {
 		return personDao.save(entity);
 	}

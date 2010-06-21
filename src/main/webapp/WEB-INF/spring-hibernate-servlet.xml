@@ -14,6 +14,12 @@
             expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     
+    <!-- This bean matches incoming requests to controllers by convention. For
+		 example '/person/add' is delegated to the PersonController.add().
+	-->
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+    
     <bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"

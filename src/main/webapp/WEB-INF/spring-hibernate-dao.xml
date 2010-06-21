@@ -31,6 +31,11 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
        p:entityManagerFactory-ref="entityManagerFactory"/>
 	
+	<!-- Enabled @Transactional annotation on services
+		 property transaction-manager takes default value "transactionManager"
+		 if another name explcity specified 
+	 -->
+	<tx:annotation-driven />
     
     <!-- Enabled the inject @PersistentUnit and @PersistenceContext to POJOS -->
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"  />
@@ -53,7 +58,8 @@
        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
        p:dataSource-ref="dataSource"
        p:jpaVendorAdapter-ref="jpaAdapter"
-       p:persistenceUnitName="wctemplatePU">
+       p:persistenceUnitName="wctemplatePU"
+       p:persistenceXmlLocation="classpath:META-INF/persistence.xml">
        <property name="loadTimeWeaver">
           <bean
              class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
@@ -62,6 +68,7 @@
 	
 	 <bean id="jpaAdapter"
          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-         p:database="${jpa.database}"
-         p:showSql="${jpa.showSql}"/>	
+         p:databasePlatform="${jpa.database}"
+         p:showSql="${jpa.showSql}"
+         p:generateDdl="${jpa.generateDdl}"/>	
 </beans>
