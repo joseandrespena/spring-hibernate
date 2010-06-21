@@ -14,9 +14,15 @@
             expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     
+    	<!-- Handler mapping for type level annotations -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<!-- Handler mapping for method level annotations -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />	
+	
     <!-- This bean matches incoming requests to controllers by convention. For
-		 example '/person/add' is delegated to the PersonController.add().
-	-->
+		 example '/person/add' is delegated to the PersonController.add() -->
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
     
