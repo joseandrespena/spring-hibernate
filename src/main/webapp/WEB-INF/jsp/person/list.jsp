@@ -22,7 +22,7 @@
 <p><b>Persons in Data Base</p>
 <table id="persons">
 	<tr><th>ID</th><th>FirstName</th><th>LastName</th><th>Email</th><th>Address</th><th>Phone</th></tr>
-	<c:forEach items="${personList}" var="person">
+	<c:forEach items="${requestScope.personList}" var="person">
 		<tr>
 			<td><c:out value="${person.id}"></c:out></td>
 			<td><c:out value="${person.firstName}"></c:out></td>
