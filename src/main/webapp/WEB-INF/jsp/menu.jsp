@@ -15,6 +15,7 @@
 <!-- <a href="<c:url value="/provider/list.do"/>">List Providers</a> -->
 <a href="<c:url value="/person/list.do"/>">List Person</a>
 <!-- <a href="<c:url value="/order/list.do"/>">List Orders</a>  -->
+<a href="<c:url value="/person/form.do"/>">Add Person</a>
 
 </body>
 </html>
