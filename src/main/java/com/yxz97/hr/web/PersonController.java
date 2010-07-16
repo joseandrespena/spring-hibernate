@@ -26,9 +26,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
+//import com.digitalarbor.hr.exceptions.UserExistsException;
 import com.yxz97.hr.domain.Person;
 import com.yxz97.hr.service.PersonService;
 
@@ -38,6 +44,10 @@ public class PersonController {
 	private Log logger = LogFactory.getLog(getClass());
 	@Resource
 	private PersonService personService;
+	
+	public void setPersonManager(PersonService personService) {
+		this.personService = personService;
+	}
 
     @RequestMapping(method = RequestMethod.GET)
 	public void list(Model model) {
@@ -45,9 +55,36 @@ public class PersonController {
     	model.addAttribute(personList);
     	logger.info("returning to person/list.jsp personList:" + personList.toString());
 	}
-
-	public void setPersonManager(PersonService personService) {
-		this.personService = personService;
+    
+    @RequestMapping(method = RequestMethod.GET)
+    public void form(ModelMap model) {
+    	Person person = new Person();
+		model.addAttribute("person", person);
+		logger.info("returning person/form");
+    }
+    
+    @RequestMapping(method = RequestMethod.POST)
+	public ModelAndView form(@ModelAttribute Person person, BindingResult result, SessionStatus status) {
+		ModelAndView mv = new ModelAndView("person/list");
+		logger.info("validating person:" + person.toString());
+		//this.personValidator.validate(person, result);
+		if (result.hasErrors()) {
+			mv = new ModelAndView("person/list");
+		} else {
+			try {
+				this.personService.save(person);
+				logger.info("inserted new person sucessful");
+				//List<Person> personList = this.personService.findAllPerson();
+				/*logger.info("returning person/list personList:" + personList.toString());
+				mv = new ModelAndView("person/list", "personList", personList);*/
+			/*} catch (UserExistsException e) {
+				result.rejectValue("username", "person.error.username.duplicated", null, "Duplicated username");
+				mv = new ModelAndView("person/form"); */
+			} catch (Exception ex) {
+				logger.info("problem save person:" + ex.toString());
+			}
+		}
+		return mv;
 	}
-	
+    
 }
