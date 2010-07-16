@@ -15,7 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:C:\\Users\\jose\\Documents\\Developer\\spring-hibernate\\src\\main\\webapp\\WEB-INF\\applicationContext.xml")
+//@ContextConfiguration("file:C:\\Users\\jose\\Documents\\Developer\\spring-hibernate\\src\\main\\webapp\\WEB-INF\\applicationContext.xml")
+@ContextConfiguration("file:C:\\Documents and Settings\\jose.pena\\My Documents\\development\\maven\\spring-hibernate\\src\\main\\webapp\\WEB-INF\\applicationContext.xml")
 public class BaseServiceIntegrationTest {
 
 }
