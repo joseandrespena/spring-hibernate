@@ -60,10 +60,10 @@
        p:jpaVendorAdapter-ref="jpaAdapter"
        p:persistenceUnitName="wctemplatePU"
        p:persistenceXmlLocation="classpath:META-INF/persistence.xml">
-       <property name="loadTimeWeaver">
+       <!-- <property name="loadTimeWeaver">
           <bean
              class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
-        </property>        
+        </property>        -->
     </bean>
 	
 	 <bean id="jpaAdapter"
