@@ -2,24 +2,39 @@
 <beans xmlns="http://www.springframework.org/schema/beans" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:p="http://www.springframework.org/schema/p" 
+    xmlns:mvn="http://www.springframework.org/schema/mvc"
     xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
     <context:component-scan base-package="com.yxz97.hr.web">
     	<context:include-filter type="annotation"
             expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     
+    <!--
+    * Using the Spring 3 Type ConversionService  as a simpler and more robust alternative to JavaBeans PropertyEditors
+    * Support for formatting Number fields with @NumberFormat
+    * Support for formatting Date, Calendar, and Joda Time fields with @DateTimeFormat, if Joda Time is on the classpath
+    * Support for validating @Controller inputs with @Valid, if a JSR-303 Provider is on the classpath
+    * Support for reading and writing XML, if JAXB is on the classpath
+    * Support for reading and writing JSON, if Jackson is on the classpath  
+     -->
+    <mvn:annotation-driven/>
     	<!-- Handler mapping for type level annotations -->
+	<!-- 
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+		-->
 	<!-- Handler mapping for method level annotations -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />	
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+		-->	
 	
     <!-- This bean matches incoming requests to controllers by convention. For
 		 example '/person/add' is delegated to the PersonController.add() -->
