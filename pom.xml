@@ -173,6 +173,15 @@
 			<artifactId>spring-flex-core</artifactId>
 			<version>1.5.0.BUILD-SNAPSHOT</version>
 		</dependency>
+		<!-- 
+		This dependency or library is not available in maven central repostory neither in
+		http://maven.springframework.org I had to download blazeds-bin-4.0.0.14931.zip from		 
+		http://opensource.adobe.com/wiki/display/blazeds/BlazeDS/
+		unzip and install in the local repository with
+		mvn install:install-file -Dpackaging=jar -DgroupId=com.adobe.blazeds -Dversion=4.0.0.14931
+		-DartifactId=blazeds-opt -Dfile=flex-messaging-opt.jar 
+		this command is run from inside the directory which the unzip file.
+		-->
 		<dependency>
 			<groupId>com.adobe.blazeds</groupId>
 			<artifactId>blazeds-opt</artifactId>
