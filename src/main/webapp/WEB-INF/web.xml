@@ -19,7 +19,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<!-- Configuration servlet used for received messages from Flex -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>MessageBrokerServlet</servlet-name>
 		<servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
 		<init-param>
@@ -27,11 +27,12 @@
 			<param-value>/WEB-INF/flex/services-config.xml</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
-	</servlet>
+	</servlet> -->
 	<servlet-mapping>
-		<servlet-name>MessageBrokerServlet</servlet-name>
+		<!-- <servlet-name>MessageBrokerServlet</servlet-name>  -->
+		<servlet-name>spring-hibernate</servlet-name>
 		<url-pattern>/messagebroker/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 	<servlet-mapping>
 		<servlet-name>spring-hibernate</servlet-name>
 		<url-pattern>*.htm</url-pattern>

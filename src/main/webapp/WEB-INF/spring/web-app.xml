@@ -28,18 +28,15 @@
     * Support for reading and writing XML, if JAXB is on the classpath
     * Support for reading and writing JSON, if Jackson is on the classpath  
      -->
-    <mvn:annotation-driven/>
-    <flex:message-broker />
-    	<!-- Handler mapping for type level annotations -->
-	<!-- 
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-		-->
+    <!-- <mvn:annotation-driven/> -->  
+    
+    <!-- Handler mapping for type level annotations -->
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+		
 	<!-- Handler mapping for method level annotations -->
-	<!-- <bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-		-->	
-	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+				
     <!-- This bean matches incoming requests to controllers by convention. For
 		 example '/person/add' is delegated to the PersonController.add() -->
 	<bean

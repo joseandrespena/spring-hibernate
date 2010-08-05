@@ -94,7 +94,7 @@
 			-->
 		</redeploy>
 	</system>
-	<factories>
+	<!-- <factories>
 		<factory id="spring" class="com.yxz97.hr.factories.SpringFactory" />
-	</factories>
+	</factories> -->
 </services-config>

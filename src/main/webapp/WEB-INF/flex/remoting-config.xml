@@ -10,11 +10,11 @@
         <channel ref="my-amf"/>
     </default-channels>
     
-    <destination id="personService">
+    <!-- <destination id="personService">
     	<properties>
     		<factory>spring</factory>
     		<source>personService</source>
     	</properties>
-    </destination>
+    </destination>  -->
 
 </service>
