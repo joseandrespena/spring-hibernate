@@ -232,6 +232,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>spring-hibernate</finalName>
+		<finalName>spring-hibernateFinal</finalName>
 	</build>
 </project>
