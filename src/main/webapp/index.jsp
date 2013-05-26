@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title><fmt:message key="title" /></title>
+<!-- test hook service -->
 <style type="text/css">
 .pageStyle {
 	background-color: #EEE;
