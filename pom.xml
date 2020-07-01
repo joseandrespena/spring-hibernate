@@ -164,7 +164,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.12</version>
+			<version>8.0.16</version>
 		</dependency>
 		<!-- <dependency> <groupId>org.springframework.flex</groupId> <artifactId>spring-flex</artifactId> 
 			<version>1.0.3.RELEASE</version> </dependency> -->
