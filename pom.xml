@@ -10,7 +10,7 @@
 <!-- test comment -->
 	<!-- Shared version number properties -->
 	<properties>
-		<org.springframework.version>3.0.0.RELEASE</org.springframework.version>
+		<org.springframework.version>6.0.0</org.springframework.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 		<slf4j-log4j12.version>1.5.6</slf4j-log4j12.version>
 	</properties>
